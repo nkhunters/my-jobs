@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Jobs from './Components/Jobs';
+import JobDetails from './Components/JobDetails';
+import Nav from './Components/Nav';
 import './App.css';
+import PostJob from './Components/PostJob';
+import Footer from './Components/Footer';
+
+const client = new ApolloClient({
+  uri: 'https://api.graphql.jobs/'
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <Nav />
+        <div className="container">
+          <Switch>
+            <Route exact path="/post-job" component={PostJob} />
+            <Route exact path="/job/:jobSlug/:companySlug" component={JobDetails} />
+            <Route exact path="/:pageNo" component={Jobs} />
+          </Switch>
+        </div>
+        <Footer />
+      </Router>
+    </ApolloProvider>
   );
 }
 
