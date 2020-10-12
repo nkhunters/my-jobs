@@ -78,7 +78,7 @@ export class JobDetails extends Component {
                                             }
                                         </div>
                                         <br /><br />
-                                        <a className="btn btn-primary" href={data.job.applyUrl} target="_blank" style={{ paddingLeft: "60px", paddingRight: '60px', borderRadius: '10px', fontWeight: 'bold' }}>Apply</a>
+                                        <a className="btn btn-primary" href={data.job.applyUrl} target="_blank" rel="noopener noreferrer" style={{ paddingLeft: "60px", paddingRight: '60px', borderRadius: '10px', fontWeight: 'bold' }}>Apply</a>
                                     </div>
                                 </div>
                             </Fragment>
