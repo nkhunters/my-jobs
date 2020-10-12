@@ -42,19 +42,19 @@ export class Jobs extends Component {
     paginate = () => {
 
         let array = this.state.data.jobs;
-        if (this.state.jobType == "fullTime") {
+        if (this.state.jobType === "fullTime") {
             array = this.state.data.jobs.filter(function (job) {
                 return job.commitment.title === "Full-time";
             });
         }
-        if (this.state.jobType == "partTime") {
+        if (this.state.jobType === "partTime") {
             array = this.state.data.jobs.filter(function (job) {
                 return job.commitment.title === "Part-time";
             });
         }
         let page_size = 10;
         let { pageNo } = this.props.match.params;
-        let tempData = array.slice(pageNo == 1 ? 1 : (pageNo - 1) * page_size, pageNo * page_size);
+        let tempData = array.slice(pageNo === 1 ? 1 : (pageNo - 1) * page_size, pageNo * page_size);
         return <Fragment>
             {
                 tempData.length > 0 ?
@@ -95,7 +95,7 @@ export class Jobs extends Component {
 
                 <br />
                 {
-                    this.state.data == null ? <Query query={JOBS_QUERY}>
+                    this.state.data === null ? <Query query={JOBS_QUERY}>
                         {
                             ({ loading, error, data }) => {
                                 if (loading) return <h4>Loading...</h4>
@@ -115,19 +115,19 @@ export class Jobs extends Component {
                                 <li className="page-item">
                                     <Link to={`/${prevPage}`} className="page-link" href="#">&laquo;</Link>
                                 </li>
-                                <li className={`page-item ${pageNo == 1 ? 'active' : null}`}>
+                                <li className={`page-item ${pageNo === 1 ? 'active' : null}`}>
                                     <Link to='/1' className="page-link" href="#">1</Link>
                                 </li>
-                                <li className={`page-item ${pageNo == 2 ? 'active' : null}`}>
+                                <li className={`page-item ${pageNo === 2 ? 'active' : null}`}>
                                     <Link to='/2' className="page-link" href="#">2</Link>
                                 </li>
-                                <li className={`page-item ${pageNo == 3 ? 'active' : null}`}>
+                                <li className={`page-item ${pageNo === 3 ? 'active' : null}`}>
                                     <Link to='/3' className="page-link" href="#">3</Link>
                                 </li>
-                                <li className={`page-item ${pageNo == 4 ? 'active' : null}`}>
+                                <li className={`page-item ${pageNo === 4 ? 'active' : null}`}>
                                     <Link to='/4' className="page-link" href="#">4</Link>
                                 </li>
-                                <li className={`page-item ${pageNo == 5 ? 'active' : null}`}>
+                                <li className={`page-item ${pageNo === 5 ? 'active' : null}`}>
                                     <Link to='/5' className="page-link" href="#">5</Link>
                                 </li>
                                 <li className="page-item">

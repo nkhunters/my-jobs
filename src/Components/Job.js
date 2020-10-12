@@ -11,8 +11,8 @@ export default function Job({ job }) {
                         <span>{job.company.name}</span>
                     </div>
                     <div className="col-md-4">
-                        {job.tags.length == 1 ? <span>{job.tags[0].name}</span> : null}
-                        {job.tags.length == 2 ? <div><span>{job.tags[0].name}</span> &emsp; <span>{job.tags[1].name}</span></div> : null}
+                        {job.tags.length === 1 ? <span>{job.tags[0].name}</span> : null}
+                        {job.tags.length === 2 ? <div><span>{job.tags[0].name}</span> &emsp; <span>{job.tags[1].name}</span></div> : null}
                         {job.tags.length > 3 ? <div><span>{job.tags[0].name}</span> &emsp; <span>{job.tags[1].name}</span>&emsp; <span>{job.tags[2].name}</span></div> : null}
                         
                     </div>
